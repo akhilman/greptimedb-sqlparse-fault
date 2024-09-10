@@ -13,7 +13,7 @@ podman run -it --rm make_it_fail --host <GreptimeDB-IP> --port 4002 --database p
 Install python and mariadb or mysql headers:
 - `apt install libpython3.11-dev libmariadb-dev` on Debian/Ubuntu;
 - `dnf install python3.11-devel mariadb-devel` on Fedora;
-- `zypper install python311-devel libmariadb-devel` on OpenSUSE.
+- `zypper install python311-devel libmariadb-devel` on Tumbleweed.
 
 Create virtual environment and install python dependencies:
 ```bash
