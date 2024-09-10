@@ -1,0 +1,18 @@
+from docker.io/opensuse/tumbleweed
+
+run zypper install -y \
+  gcc \
+  python310 \
+  python310-devel \
+  libmariadb-devel
+run useradd -m -d /app bully
+user bully
+workdir /app
+add data/*.csv data/
+add make_it_fail.py requirements.txt ./
+run python3 -m venv venv \
+  && . venv/bin/activate \
+  && pip install -r requirements.txt \
+  && rm -r .cache
+entrypoint ["/app/venv/bin/python3", "./make_it_fail.py"]
+
